@@ -1,0 +1,30 @@
+<?php
+// module/Album/view/album/album/index.phtml:
+
+$title = 'Meus Clientes';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+    <a href="<?php echo $this->url('album', array('action'=>'addfac'));?>">Adicionar novo cliente</a>
+</p>
+
+<table class="table">
+<tr>
+    <th>Nome</th>
+    <th>Ramo</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach ($albums as $album) : ?>
+<tr>
+    <td><?php echo $this->escapeHtml($album->title);?></td>
+    <td><?php echo $this->escapeHtml($album->artist);?></td>
+    <td>
+        <a href="<?php echo $this->url('album',
+            array('action'=>'editfac', 'id' => $album->id));?>">Editar</a>
+        <a href="<?php echo $this->url('album',
+            array('action'=>'deletefac', 'id' => $album->id));?>">Excluir</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>

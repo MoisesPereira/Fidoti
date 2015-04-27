@@ -16,6 +16,10 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-        return new ViewModel();
+    	$titulo = "Primeira Pagina";
+
+        return new ViewModel(array(
+        		'titulo' => 'Primero Teste'
+        	));
     }
 }

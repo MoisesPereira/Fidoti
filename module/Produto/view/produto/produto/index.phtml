@@ -1,0 +1,34 @@
+<?php
+
+$title = 'Meus Produtos';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+    <a href="<?php echo $this->url('produto', array('action'=>'add'));?>">Adicionar um novo Produto</a>
+</p>
+
+<table class="table" border="1">
+<tr>
+    <th>Nome</th>
+    <th>Código</th>
+    <th>Genero</th>
+    <th>Quantidade</th>
+    <th>Ações</th>
+</tr>
+
+<?php foreach ($produtos as $produto) : ?>
+<tr>
+    <td><?php echo $this->escapeHtml($produto->nome);?></td>
+    <td><?php echo $this->escapeHtml($produto->codigo);?></td>
+    <td><?php echo $this->escapeHtml($produto->genero);?></td>
+    <td><?php echo $this->escapeHtml($produto->quantidade);?></td>
+    <td>
+        <a href="<?php echo $this->url('produto',
+            array('action'=>'edit', 'id' => $produto->id));?>">Editar</a>
+        <a href="<?php echo $this->url('produto',
+            array('action'=>'delete', 'id' => $produto->id));?>">Deletar</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>

@@ -1,0 +1,106 @@
+<?php
+
+$title = 'Adicionar novo Cliente';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url('fidoti', array('action' => 'add')));
+$form->prepare();
+
+?>
+
+<div id="teste" style="border: 0px solid red">
+
+<?php
+
+echo "<table border='1' style='width:100%'>";
+	echo "<tr>";
+
+		echo $this->form()->openTag($form);
+		echo $this->formHidden($form->get('id'));
+
+		echo "<td>";
+		echo $this->formRow($form->get('nome'));
+		echo "</td>";
+
+		echo "<td>";
+		echo $this->formRow($form->get('telefone'));
+		echo "</td>";
+
+		echo "<td>";
+		echo $this->formRow($form->get('celular'));
+		echo "</td>";
+
+		echo "<td>";
+		echo $this->formRow($form->get('endereco'));
+		echo "</td>";
+
+	echo "</tr>";
+
+	echo "<tr>";
+		echo "<td>";
+		echo $this->formRow($form->get('email'));
+		echo "</td>";
+
+		echo "<td>";
+		echo $this->formRow($form->get('servico'));
+		echo "</td>";
+
+		echo "<td>";
+		echo $this->formRow($form->get('descricao'));
+		echo "</td>";
+
+		echo "<td>";
+		echo $this->formRow($form->get('tipo'));
+		echo "</td>";
+
+	echo "</tr>";	
+
+	echo "<tr>";
+
+		echo "<td>";
+		echo $this->formRow($form->get('produto'));
+		echo "</td>";
+
+		echo "<td>";
+		echo $this->formRow($form->get('valor'));
+		echo "</td>";
+
+		echo "<td>";
+		echo $this->formRow($form->get('data_retirada'));
+		echo "</td>";
+
+		echo "<td>";
+		echo $this->formRow($form->get('data_entrega')); 
+		echo "</td>";
+
+	echo "</tr>";	
+
+	echo "<tr>";
+
+		echo "<td>";
+		echo $this->formRow($form->get('forma_pagamento'));
+		echo "</td>";
+
+		echo "<td>";
+		echo $this->formRow($form->get('obs'));
+		echo "</td>";
+
+		echo "<td>";
+		echo $this->formRow($form->get('data'));
+		echo "</td>";
+
+		echo "<td>";
+		echo $this->formSubmit($form->get('submit'));
+		echo "</td>";
+
+	echo "</tr>";
+	
+	echo $this->form()->closeTag();
+echo "</table>";
+
+?>
+
+</div>

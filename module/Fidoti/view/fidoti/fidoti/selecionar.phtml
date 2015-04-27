@@ -1,0 +1,38 @@
+<?php
+ 
+ $title = 'Detalhes';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+
+ <?php
+ $form = $this->form;
+ $form->setAttribute('action', $this->url(
+     'fidoti',
+     array(
+         'action' => 'index',
+     )
+ ));
+ $form->prepare();
+
+echo "<table>";
+echo $this->form()->openTag($form);
+echo $this->formRow($form->get('id')->setAttribute('readonly', 'readonly')) . "<br>"; 
+echo $this->formRow($form->get('nome')->setAttribute('readonly', 'readonly')) . "<br>";
+echo $this->formRow($form->get('telefone')->setAttribute('readonly', 'readonly')) . "<br>";
+echo $this->formRow($form->get('celular')->setAttribute('readonly', 'readonly')) . "<br>";
+echo $this->formRow($form->get('endereco')->setAttribute('readonly', 'readonly')) . "<br>";
+echo $this->formRow($form->get('email')->setAttribute('readonly', 'readonly')) . "<br>";
+echo $this->formRow($form->get('servico')->setAttribute('readonly', 'readonly')) . "<br>";
+echo $this->formRow($form->get('descricao')->setAttribute('readonly', 'readonly')) . "<br>";
+echo $this->formRow($form->get('tipo')->setAttribute('readonly', 'readonly')) . "<br>";
+echo $this->formRow($form->get('produto')->setAttribute('readonly', 'readonly')) . "<br>";
+echo $this->formRow($form->get('valor')->setAttribute('readonly', 'readonly')) . "<br>";
+echo $this->formRow($form->get('data_retirada')->setAttribute('readonly', 'readonly')) . "<br>";
+echo $this->formRow($form->get('data_entrega')->setAttribute('readonly', 'readonly')) . "<br>";
+echo $this->formRow($form->get('forma_pagamento')->setAttribute('readonly', 'readonly')) . "<br>";
+echo $this->formRow($form->get('obs')->setAttribute('readonly', 'readonly')) . "<br>";
+echo $this->formRow($form->get('data')->setAttribute('readonly', 'readonly')) . "<br>";
+echo $this->formSubmit($form->get('submit')) . "<br>";
+echo $this->form()->closeTag();
+echo "</table>";

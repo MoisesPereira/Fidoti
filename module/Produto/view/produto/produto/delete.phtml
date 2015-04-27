@@ -1,0 +1,25 @@
+ <?php
+ // module/Album/view/album/album/delete.phtml:
+
+ $title = 'Deletar Produto';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+
+ <p>Tem certeza que quer deletar o produto?
+     '<?php echo $this->escapeHtml($produto->nome); ?>' por
+     '<?php echo $this->escapeHtml($produto->genero); ?>'?
+ </p>
+ <?php
+ $url = $this->url('produto', array(
+     'action' => 'delete',
+     'id'     => $this->id,
+ ));
+ ?>
+ <form action="<?php echo $url; ?>" method="post">
+ <div>
+     <input type="hidden" name="id" value="<?php echo (int) $produto->id; ?>" />
+     <input type="submit" name="del" value="Yes" />
+     <input type="submit" name="del" value="No" />
+ </div>
+ </form>

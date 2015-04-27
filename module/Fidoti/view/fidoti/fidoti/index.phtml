@@ -1,0 +1,42 @@
+<?php
+
+$title = 'Formulário de Clientes';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+    <a href="<?php echo $this->url('fidoti', array('action'=>'add'));?>">Adicionar um novo Cliente</a>
+</p>
+
+<table class="table" border="1">
+<tr>
+    <th>OS</th>
+    <th>Data</th>    
+    <th>Nome</th>
+    <th>Endereço</th>    
+    <th>Telefone</th>
+    <th>Serviço</th>
+    <th>Valor</th>
+    <th>Ações</th>
+</tr>
+
+<?php foreach ($fidotis as $fidoti) : ?>
+<tr>
+    <td><?php echo $this->escapeHtml($fidoti->id);?></td>
+    <td><?php echo $this->escapeHtml($fidoti->data);?></td>
+    <td><?php echo $this->escapeHtml($fidoti->nome);?></td>
+    <td><?php echo $this->escapeHtml($fidoti->endereco);?></td>
+    <td><?php echo $this->escapeHtml($fidoti->telefone);?></td>
+    <td><?php echo $this->escapeHtml($fidoti->servico);?></td>
+    <td><?php echo $this->escapeHtml($fidoti->valor);?></td>
+    <td>
+        <a href="<?php echo $this->url('fidoti',
+            array('action'=>'selecionar', 'id' => $fidoti->id));?>">Selecionar</a>
+        <a href="<?php echo $this->url('fidoti',
+            array('action'=>'edit', 'id' => $fidoti->id));?>">Editar</a>
+        <a href="<?php echo $this->url('fidoti',
+            array('action'=>'delete', 'id' => $fidoti->id));?>">Deletar</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>
